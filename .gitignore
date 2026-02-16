@@ -1,5 +1,31 @@
-bin/
-obj/
+# --- JetBrains Rider Specific ---
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# --- .NET / Build Results ---
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa]pp[Dd]ata/
+*.pdb
+*.log
+*.tmp
+
+# --- NuGet Packages ---
 /packages/
-riderModule.iml
-/_ReSharper.Caches/
+*.nupkg
+
+# --- MCP & Environment Specific ---
+# Exclude sensitive configuration files
+appsettings.json
+appsettings.Development.json
+.env
+
+# If using node-based MCP tools alongside .NET
+/node_modules/
