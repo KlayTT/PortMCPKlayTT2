@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using ModelContextProtocol.Server; // Updated MCP NameSpace
+using System.Net.Http.Json;
+using System.Text.Json; // This helps with JsonElement too
 
 namespace FluxPortfolioServer.Tools;
 
@@ -19,5 +21,36 @@ public class PortfolioTools // Remove "static" here
         }
 
         return await File.ReadAllTextAsync(path);
+    }
+    [McpServerTool, Description("Lists the names and descriptions of KlayTT's public GitHub repositories.")]
+    public static async Task<string> GetGithubRepos()
+    {
+        using var client = new HttpClient();
+        client.DefaultRequestHeaders.Add("User-Agent", "MCP-Server-Flux");
+
+        try 
+        {
+            // This hits the /repos endpoint instead of the /user endpoint
+            var repos = await client.GetFromJsonAsync<List<JsonElement>>("https://api.github.com/users/KlayTT/repos?sort=updated&per_page=5");
+        
+            var repoList = string.Join("\n", repos.Select(r => 
+                $"- {r.GetProperty("name").GetString()}: {r.GetProperty("description").GetString() ?? "No description"}"));
+
+            return $"KlayTT's Recent Repositories:\n{repoList}";
+        }
+        catch (Exception ex)
+        {
+            return $"Failed to fetch repos: {ex.Message}";
+        }
+    }
+    [McpServerTool, Description("Provides KlayTT's professional contact information and social media links.")]
+    public static string GetContactInfo()
+    {
+        return """
+               📧 Email: your-email@example.com
+               🔗 LinkedIn: https://linkedin.com/in/your-profile
+               🖥️ Portfolio: https://your-website.com
+               📅 Schedule a Chat: https://calendly.com/your-link (optional)
+               """;
     }
 }
