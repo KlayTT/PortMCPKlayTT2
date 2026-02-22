@@ -47,10 +47,10 @@ public class PortfolioTools // Remove "static" here
     public static string GetContactInfo()
     {
         return """
-               📧 Email: your-email@example.com
-               🔗 LinkedIn: https://linkedin.com/in/your-profile
-               🖥️ Portfolio: https://your-website.com
-               📅 Schedule a Chat: https://calendly.com/your-link (optional)
+               📧 Email: klaythacker11@gmail.com
+               🔗 LinkedIn: www.linkedin.com/in/k-thacker/
+               🖥️ Portfolio: KTFlux@Whatever site it will be
+               🗨️ Want to Chat?: Simply send me and email and I will respond as soon as possible!
                """;
     }
 }

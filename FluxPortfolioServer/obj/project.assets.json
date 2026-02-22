@@ -5767,7 +5767,7 @@
     "version": "0.1.0-beta",
     "restore": {
       "projectUniqueName": "C:\\Users\\User\\RiderProjects\\PortMCPKlayTT2\\FluxPortfolioServer\\FluxPortfolioServer.csproj",
-      "projectName": "SampleMcpServer.win-x64",
+      "projectName": "SampleMcpServer",
       "projectPath": "C:\\Users\\User\\RiderProjects\\PortMCPKlayTT2\\FluxPortfolioServer\\FluxPortfolioServer.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\User\\RiderProjects\\PortMCPKlayTT2\\FluxPortfolioServer\\obj\\",
